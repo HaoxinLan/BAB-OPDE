@@ -1,6 +1,6 @@
 # BAB-OPDE
 
-## Bayesian Adaptive B-Spline-based Optimal Probability Density Estimation of Mineral Flotation Bubble Size and Morphological Characteristics
+## Bayesian Adaptive B-Spline-based Optimal Probability Density Estimation for Mineral Flotation Bubble Size and Morphology Monitoring
 
 [![Status](https://img.shields.io/badge/Status-Under_Review-yellow.svg)](https://github.com/YOUR_USERNAME/REPO_NAME)
 
