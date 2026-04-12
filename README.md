@@ -12,7 +12,17 @@
 
 ## 📘 Introduction
 
-Froth flotation, the most widely-used mineral separation technique, requires generating mineralized bubbles with appropriate size and stability, necessitating precise monitoring of bubble size and morphological characteristics (BSMCs) distributions. Conventional probability density function (PDF) estimation (PDFE) methods, such as histograms and kernel density estimation (KDE), often lack the interpretability and robustness required for effective process control.  Meanwhile, existing B-spline-based PDFE methods, though suitable for stochastic process monitoring, struggle to achieve optimal PDF results. To overcome the above limitations, this article proposes a **Bayesian Adaptive B-spline-based optimal PDFE (BAB-OPDE)** method for characterizing the distribution of flotation BSMCs. 
+Froth flotation, the most widely-used mineral separation technique, requires generating mineralized bubbles with appropriate size and stability, necessitating precise monitoring of bubble size and morphological characteristics (BSMCs) distributions. However, as shown in **Fig. a** below, due to the opaque or translucent nature of flotation froth, directly measuring the internal bubble size distribution is extremely challenging. Previous studies indicate that it can be inferred from surface froth characteristics.
+
+Froth image segmentation techniques can be employed to isolate individual bubbles from the complex background and to achieve accurate characterization of bubble size and morphological characteristics. Effective segmentation is therefore essential for machine vision-based flotation process monitoring. 
+The following **Fig. b-e** illustrates the segmentation results of flotation froth images based on our proposed MsD-MsJ with corresponding BSMCs measurements.
+
+<img width="1211" height="690" alt="image" src="https://github.com/user-attachments/assets/6da9c616-1c17-4f79-9562-98976cf134a3" />
+
+
+Although froth image segmentation methods can extract features such as bubble size, eccentricity, and orientation from foam images, subsequent analysis typically relies on simple statistical measures like mean and variance, which fail to capture complex distributions characterized by multimodality, skewness, or long tails.
+
+Conventional probability density function (PDF) estimation (PDFE) methods, such as histograms and kernel density estimation (KDE), often lack the interpretability and robustness required for effective process control.  Meanwhile, existing B-spline-based PDFE methods, though suitable for stochastic process monitoring, struggle to achieve optimal PDF results. To overcome the above limitations, this article proposes a **Bayesian Adaptive B-spline-based optimal PDFE (BAB-OPDE)** method for characterizing the distribution of flotation BSMCs.
 
 ### Key Contributions
 
@@ -26,16 +36,20 @@ Froth flotation, the most widely-used mineral separation technique, requires gen
 
 ### A. Analysis of Validation Experiments based on Numerical Simulation Systems
 
-**Fig. 5** shows that the traditional B-spline method can capture the overall trend of the underlying distribution, but its reconstructed surface exhibits noticeable oscillations and distortions, particularly around the multimodal regions. KDE produces a smoother estimate; however, the multimodal structure is still blurred, and the peak heights and locations deviate from those of the true PDF. In contrast, BAB-OPDE yields a fitted surface that is much closer to the true PDF, with more accurate recovery of the number of modes as well as their shapes and positions, demonstrating its superior capability for two-dimensional joint PDF estimation.
+**Fig. 5** shows that the fitting effects of traditional B-splines (**Fig. 5d**) , KDE (**Fig. 5e**) and BAB-OPDE (**Fig. 5f**) on the true distribution (**Fig. 5a**). 
+The traditional B-spline method can capture the overall trend of the underlying distribution, but its reconstructed surface exhibits noticeable oscillations and distortions, particularly around the multimodal regions. KDE produces a smoother estimate; however, the multimodal structure is still blurred, and the peak heights and locations deviate from those of the true PDF. In contrast, BAB-OPDE yields a fitted surface that is much closer to the true PDF, with more accurate recovery of the number of modes as well as their shapes and positions, demonstrating its superior capability for two-dimensional joint PDF estimation.
 
-<img width="3130" height="1498" alt="image" src="https://github.com/user-attachments/assets/db38d56d-c404-4e66-b7c2-9c415804733e" />
-
+<div align="center">
+  <img width="100%"  alt="image" src="https://github.com/user-attachments/assets/db38d56d-c404-4e66-b7c2-9c415804733e" />
+</div>
 
 ### B. Convergence Analysis
 
 The convergence behavior under the default setting is illustrated in **Fig. 6**. The figure presents the stage-wise evolution of the objective value, the active basis number, the posterior expectations of the inverse variance parameters, and the norm of the posterior mean coefficient vector.
 
-<img width="1542" height="1670" alt="image" src="https://github.com/user-attachments/assets/2cd51319-e3ab-42e4-a2d8-a384094410c1" />
+<div align="center">
+  <img width="50%" alt="image" src="https://github.com/user-attachments/assets/2cd51319-e3ab-42e4-a2d8-a384094410c1" />
+</div>
 
 ### C. Case Studies on Copper Flotation Process
 
